@@ -13,4 +13,4 @@ rouge-score
 spacy
 torch
 transformers
-spacy-model-en_core_web_sm
+spacy-streamlit
