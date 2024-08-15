@@ -12,7 +12,7 @@ from transformers import BertTokenizer, BertForSequenceClassification
 import spacy_streamlit
 
 # Load the English NLP model
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy_streamlit.load('en_core_web_sm')
 
 # Define BERT tokenizer and model for later use
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
