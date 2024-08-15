@@ -1,5 +1,3 @@
-from EvaluationMetrics import evaluate_metrics
-import numpy as np
 import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
@@ -143,20 +141,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
 
-# Evaluation section
-st.sidebar.header("Evaluate AV_Bot RAG Pipeline")
-
-if st.sidebar.button('Evaluate'):
-    
-    queries = ["What are her Certifications?"]
-    ground_truths = [
-        { 
-            'contexts':["Anmol Valecha holds the following certifications: AWS Cloud Practitioner (Pursuing), Agile Innovation & Problem-Solving Skills (2021), and Advanced Networking Using Cisco Technology (2018). Additionally, she has published a paper titled 'Fake Review Detection System Using Machine Learning' in IJSRED (2021). Her certifications and publications demonstrate her expertise in various areas, making her a valuable asset in the field of Information Systems and Computer Engineering."], 
-            'answer': '''Anmol Valecha holds the following certifications: AWS Cloud Practitioner (Pursuing), Agile Innovation & Problem-Solving Skills (2021), and Advanced Networking Using Cisco Technology (2018). Additionally, she has published a paper titled "Fake Review Detection System Using Machine Learning" in IJSRED (2021). Her certifications and publications demonstrate her expertise in various areas, making her a valuable asset in the field of Information Systems and Computer Engineering.'''
-        }
-    ]
-    
-    metrics = evaluate_metrics(queries, ground_truths, get_response, vector_store)
-    st.sidebar.subheader("Evaluation Metrics")
-    for metric, values in metrics.items():
-        st.sidebar.write(f"{metric}: {np.mean(values)}")
