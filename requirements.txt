@@ -6,7 +6,6 @@ chromadb== 0.5.3
 pypdf==4.2.0
 protobuf==3.20.*
 pysqlite3-binary
-
 numpy
 scikit-learn
 nltk
