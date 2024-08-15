@@ -9,6 +9,7 @@ from rouge_score import rouge_scorer
 import spacy
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
+import spacy_streamlit
 
 # Load the English NLP model
 nlp = spacy.load('en_core_web_sm')
